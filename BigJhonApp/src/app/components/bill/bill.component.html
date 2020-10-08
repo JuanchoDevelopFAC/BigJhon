@@ -1,0 +1,53 @@
+<div class="container-fluid">
+  <div class="starter-template">
+    <div class="row">
+      <div class="col-md-12">
+        <h3 class="text-center">Factura Mensual</h3>
+        <h6>
+          Empleado:
+          <label
+            >{{ factura.nombre | uppercase }}
+            {{ factura.apellidos | uppercase }}</label
+          >
+        </h6>
+
+        <h6>
+          Cédula:
+          <label>
+            {{ factura.cedula }}
+          </label>
+        </h6>
+
+        <h6>
+          Placa vehículo:
+          <label>
+            {{ factura.placa | uppercase }}
+          </label>
+        </h6>
+
+        <h6>
+          Fecha Ingreso:
+          <label>
+            {{ factura.fechaIngreso | date: "dd/MM/yyy" }}
+          </label>
+        </h6>
+
+        <h6>
+          Días consumidos:
+          <label>
+            {{ dias }}
+          </label>
+        </h6>
+
+        <div class="form-group">
+          <button
+            class="cancelar btn btn-secondary"
+            (click)="activeModal.close()"
+          >
+            Cerrar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

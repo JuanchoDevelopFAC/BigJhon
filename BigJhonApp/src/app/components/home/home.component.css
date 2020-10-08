@@ -1,0 +1,49 @@
+.btn-circle.btn-xl {
+  width: 70px;
+  height: 70px;
+  padding: 10px 16px;
+  border-radius: 35px;
+  font-size: 24px;
+  line-height: 1.33;
+}
+
+.btn-circle {
+  width: 40px;
+  height: 40px;
+  padding: 6px 0px;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.42857;
+}
+
+.abs-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 80px;
+}
+
+.starter-template {
+  margin-left: 200px;
+  margin-right: 200px;
+  margin-top: 50px;
+}
+
+.crear {
+  margin-left: 70%;
+}
+
+label {
+  margin-right: 10px;
+}
+
+.btnCrear,
+.btnVer {
+  margin-left: 10px;
+}
+
+.nuevo {
+  padding-top: 0;
+  padding-left: 65%;
+}

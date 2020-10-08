@@ -1,0 +1,73 @@
+<div>
+  <div class="abs-center">
+    <h1>LISTADO DE VEHÍCULOS</h1>
+  </div>
+  <div class="abs-center">
+    <button class="btn btn-primary" (click)="open()">Ir a Vehículos</button>
+  </div>
+  <div class="starter-template">
+    <h3 class="noExiste" *ngIf="sinVehiculos">No existen vehículos</h3>
+    <div
+      *ngIf="tieneFecha"
+      class="alert alert-danger alert-dismissible fade show"
+      role="alert"
+    >
+      <strong>Warning: </strong> El vehiculo se encuentra en el parqueadero
+    </div>
+    <div
+      *ngIf="ingresado"
+      class="alert alert-success alert-dismissible fade show"
+      role="alert"
+    >
+      <strong>Success: </strong> El vehiculo se ha ingresado
+    </div>
+    <div
+      *ngIf="noParqueadero"
+      class="alert alert-danger alert-dismissible fade show"
+      role="alert"
+    >
+      <strong>Warning: </strong> No se puede generar factura, el vehículo no se
+      encuentra en el parqueadero
+    </div>
+    <ul class="list-vehiculos">
+      <li *ngFor="let vehiculo of vehiculos">
+        <div class="card bg-light mb-3" style="max-width: 20rem">
+          <div class="card-header">{{ vehiculo.tipo | uppercase }}</div>
+          <div class="card-body">
+            <h6 class="title">
+              Placa: <label>{{ vehiculo.placa | uppercase }} </label>
+            </h6>
+            <h6 class="title">
+              Tiempos: <label>{{ vehiculo.tiempos }}</label>
+            </h6>
+
+            <h6 class="title">
+              Cilindraje: <label>{{ vehiculo.cilindraje }}</label>
+            </h6>
+            <h6 class="title">
+              Modelo: <label>{{ vehiculo.modelo }}</label>
+            </h6>
+
+            <h6 class="title">
+              N° Puertas: <label>{{ vehiculo.cantidadPuertas }}</label>
+            </h6>
+            <div class="form-group">
+              <button
+                class="btnIngresar btn btn-success"
+                (click)="ingresar(vehiculo)"
+              >
+                Ingresar vehiculo
+              </button>
+              <button
+                class="btnVer btn btn-primary"
+                (click)="verFactura(vehiculo)"
+              >
+                Ver Factura
+              </button>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

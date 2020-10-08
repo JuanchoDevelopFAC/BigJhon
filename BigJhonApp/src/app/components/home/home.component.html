@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="abs-center">
+    <h1>INGRESO PARQUEADERO BIGJHON</h1>
+  </div>
+  <div class="starter-template">
+    <div class="crear">
+      <label>Crear nuevo empleado</label>
+      <button
+        type="button"
+        class="btnNuevo btn btn-circle btn-primary"
+        (click)="open()"
+      >
+        +
+      </button>
+    </div>
+    <div class="row">
+      <div class="col-md-12 mt-5">
+        <h6>{{ titulo }}</h6>
+        <form [formGroup]="formConsulta">
+          <div class="form-group">
+            <input
+              type="text"
+              formControlName="dato"
+              class="form-control"
+              placeholder="Ingrese cédula o placa"
+            />
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary" (click)="buscar()">Buscar</button>
+          </div>
+        </form>
+        <div
+          *ngIf="noExiste"
+          class="alert alert-warning alert-dismissible fade show"
+          role="alert"
+        >
+          <strong>Warning: </strong> El cliente no existe
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

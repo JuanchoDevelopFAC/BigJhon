@@ -1,0 +1,88 @@
+<div class="container">
+  <div class="starter-template">
+    <div class="row">
+      <div class="col-md-12 mt-5">
+        <h1>{{ titulo }}</h1>
+        <form [formGroup]="formEmpleado">
+          <div class="form-group">
+            <label>Nombre: </label>
+            <input
+              type="text"
+              formControlName="nombre"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.nombre.errors }"
+            />
+            <div *ngIf="submitted && f.nombre.errors" class="invalid-feedback">
+              <div *ngIf="f.nombre.errors.required">
+                El campo no puede estar vacío
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Apellidos: </label>
+            <input
+              type="text"
+              formControlName="apellidos"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.apellidos.errors }"
+            />
+            <div
+              *ngIf="submitted && f.apellidos.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.apellidos.errors.required">
+                El campo no puede estar vacío
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Cédula: </label>
+            <input
+              type="number"
+              formControlName="cedula"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.cedula.errors }"
+            />
+            <div *ngIf="submitted && f.cedula.errors" class="invalid-feedback">
+              <div *ngIf="f.cedula.errors.required">
+                El campo no puede estar vacío
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-success" (click)="crear()">Agregar</button>
+            <button
+              class="cancelar btn btn-secondary"
+              (click)="activeModal.close()"
+            >
+              Cancelar
+            </button>
+            <button
+              *ngIf="verVehiculo"
+              class="vehiculos btn btn-primary"
+              (click)="abrirVehiculos()"
+            >
+              Ir a Vehículos
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  *ngIf="empleadoExistente"
+  class="alert alert-warning alert-dismissible fade show"
+  role="alert"
+>
+  <strong>Warning: </strong> El empleado ya existe
+</div>
+
+<div
+  *ngIf="empleadoCreado"
+  class="alert alert-success alert-dismissible fade show"
+  role="alert"
+>
+  <strong>Success: </strong> Empleado guardado con éxito
+</div>

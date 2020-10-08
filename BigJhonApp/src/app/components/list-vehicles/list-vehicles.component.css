@@ -1,0 +1,43 @@
+.abs-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.starter-template {
+  margin-left: 200px;
+  margin-right: 200px;
+  margin-top: 50px;
+}
+
+.noExiste {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+li {
+  list-style: none;
+}
+
+.card:hover {
+  cursor: pointer;
+}
+
+h6 {
+  font-weight: bold;
+}
+
+label {
+  font-weight: normal;
+}
+
+.card-header {
+  text-align: center;
+  font-weight: bold;
+}
+
+.btnVer {
+  margin-left: 20px;
+}

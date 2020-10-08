@@ -1,0 +1,146 @@
+<div class="container">
+  <div class="starter-template">
+    <div class="row">
+      <div class="col-md-12 mt-5">
+        <h1>{{ titulo }}</h1>
+        <form [formGroup]="formVehiculo">
+          <div class="form-group">
+            <label>Tipo de vehículo: </label>
+            <select
+              class="browser-default custom-select"
+              formControlName="tipo"
+              [ngClass]="{ 'is-invalid': submitted && f.tipo.errors }"
+            >
+              <option *ngFor="let tipo of tipos" [value]="tipo">
+                {{ tipo }}
+              </option>
+            </select>
+            <div *ngIf="submitted && f.tipo.errors" class="invalid-feedback">
+              <div *ngIf="f.tipo.errors.required">
+                El campo no puede estar vacío
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Placa: </label>
+            <input
+              type="text"
+              formControlName="placa"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.placa.errors }"
+            />
+            <div *ngIf="submitted && f.placa.errors" class="invalid-feedback">
+              <div *ngIf="f.placa.errors.required">
+                El campo no puede estar vacío
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Modelo: </label>
+            <input
+              type="text"
+              formControlName="modelo"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.modelo.errors }"
+            />
+            <div *ngIf="submitted && f.modelo.errors" class="invalid-feedback">
+              <div *ngIf="f.modelo.errors.required">
+                El campo no puede estar vacío
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Cilindraje: </label>
+            <input
+              type="text"
+              formControlName="cilindraje"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.cilindraje.errors }"
+            />
+            <div
+              *ngIf="submitted && f.cilindraje.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.cilindraje.errors.required">
+                El campo no puede estar vacío
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Tiempos: </label>
+            <input
+              type="text"
+              formControlName="tiempos"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.tiempos.errors }"
+            />
+            <div *ngIf="submitted && f.tiempos.errors" class="invalid-feedback">
+              <div *ngIf="f.tiempos.errors.required">
+                El campo no puede estar vacío
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Cantidad de puertas: </label>
+            <input
+              type="number"
+              formControlName="cantidadPuertas"
+              class="form-control"
+              [ngClass]="{
+                'is-invalid': submitted && f.cantidadPuertas.errors
+              }"
+            />
+            <div
+              *ngIf="submitted && f.cantidadPuertas.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.cantidadPuertas.errors.required">
+                El campo no puede estar vacío
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Foto: </label>
+            <input
+              type="file"
+              formControlName="foto"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.foto.errors }"
+              (change)="onFileChange($event)"
+            />
+            <div *ngIf="submitted && f.foto.errors" class="invalid-feedback">
+              <div *ngIf="f.foto.errors.required">
+                El campo no puede estar vacío
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-success" (click)="crear()">Agregar</button>
+            <button
+              class="cancelar btn btn-secondary"
+              (click)="activeModal.close()"
+            >
+              Cancelar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  *ngIf="vehiculoExistente"
+  class="alert alert-warning alert-dismissible fade show"
+  role="alert"
+>
+  <strong>Warning: </strong> El vehículo ya existe
+</div>
+
+<div
+  *ngIf="vehiculoCreado"
+  class="alert alert-success alert-dismissible fade show"
+  role="alert"
+>
+  <strong>Success: </strong> vehículo guardado con éxito
+</div>
