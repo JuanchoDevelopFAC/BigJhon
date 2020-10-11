@@ -129,7 +129,6 @@ var vehiculoController = {
       foto: parametros.foto,
       tipo: parametros.tipo,
       fechaIngreso: parametros.fechaIngreso,
-      fechaSalida: parametros.fechaSalida,
       idEmpleado: parametros.idEmpleado,
     };
 
